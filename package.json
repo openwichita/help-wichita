@@ -1,0 +1,14 @@
+{
+  "name": "help-wichita",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:openwichita/help-wichita.git",
+  "author": "Seth Etter <sethetter@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "debug": "^2.6.4",
+    "dotenv": "^4.0.0",
+    "moment": "^2.18.1",
+    "twitter": "^1.7.0"
+  }
+}
