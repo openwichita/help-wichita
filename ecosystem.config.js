@@ -26,7 +26,7 @@ module.exports = {
       ref  : 'origin/master',
       repo : 'git@github.com:openwichita/help-wichita.git',
       path : '/home/seth/deploys/help-wichita',
-      'post-deploy' : 'yarn install && pm2 reload ecosystem.config.js --env production',
+      'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env production',
       'post-setup': 'cp .env.example ../shared/.env && ln -s ../shared/.env ../current/.env'
     }
   }
