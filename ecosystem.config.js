@@ -26,15 +26,17 @@ module.exports = {
     //  ref  : 'origin/master',
     //  repo : 'git@github.com:repo.git',
     //  path : '/var/www/production',
-    //  'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env production'
+    //  'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env production',
+    //  'post-setup': 'cp .env.example ../shared/.env && ln -s ../shared/.env ../current/.env'
     //},
     dev : {
       user : 'seth',
       host : '192.241.221.238',
       ref  : 'origin/master',
       repo : 'git@github.com:openwichita/help-wichita.git',
-      path : '/home/sethetter/code/help-wichita',
+      path : '/home/seth/deploys/help-wichita',
       'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env dev',
+      'post-setup': 'cp .env.example ../shared/.env && ln -s ../shared/.env ../current/.env',
       env  : {
         NODE_ENV: 'dev'
       }
