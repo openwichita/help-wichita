@@ -14,11 +14,13 @@ const client = new Twitter({
   access_token_secret:process.env.ACCESS_TOKEN_SECRET
 })
 
-client.get('search/tweets', {
-  q: `#${HASHTAG} since:${moment().format('YYYY-MM-DD')}`,
-}).then(data => {
-  data.statuses.forEach(retweetStatus)
-}).catch(debug)
+function getStatuses() {
+  client.get('search/tweets', {
+    q: `#${HASHTAG} since:${moment().format('YYYY-MM-DD')}`,
+  }).then(data => {
+    data.statuses.forEach(retweetStatus)
+  }).catch(debug)
+}
 
 function retweetStatus(status) {
   client.post('statuses/retweet', {
@@ -27,3 +29,5 @@ function retweetStatus(status) {
     debug(`-- Retweeting status ${status.id_str} from ${retweetStatus.screen_name}`);
   }).catch(debug);
 }
+
+setInterval(getStatuses, CHECK_INTERVAL)
