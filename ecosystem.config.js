@@ -6,7 +6,7 @@ module.exports = {
   apps : [
 
     {
-      name      : 'twitter',
+      name      : 'help-wichita:twitter',
       script    : 'services/twitter.js',
       env_production : {
         NODE_ENV: 'production'

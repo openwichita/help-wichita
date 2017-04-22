@@ -5,6 +5,9 @@
   "repository": "git@github.com:openwichita/help-wichita.git",
   "author": "Seth Etter <sethetter@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "pm2 start ecosystem.config.js --attach --no-daemon --watch"
+  },
   "dependencies": {
     "debug": "^2.6.4",
     "dotenv": "^4.0.0",
