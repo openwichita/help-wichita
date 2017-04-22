@@ -1,76 +1,117 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-  <head>
+<head>
     <meta charset="utf-8" />
     <title>Help Wichita</title>
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <style>
-      .main { max-width:1200px; margin: 20px auto;}
-      .organizations { display: grid; grid-template-columns: repeat(3, 1fr); grid-gap: 10px; grid-auto-rows: minmax(100px, auto); width: 100%;  }
-      .organization { border:1px solid #000; border-radius:25px; vertical-align:middle; line-height: 200px; position:relative; max-height: 200px; }
-      .organization:hover { top:2px; border-color:#ff4646; }
-      .organization img, .organization svg { max-width:80%; margin:20px; max-height:160px; }
+        .main {
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        .organizations {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+            grid-auto-rows: minmax(100px, auto);
+            width: 100%;
+        }
+
+        .organization {
+            border: 1px solid #000;
+            border-radius: 25px;
+            vertical-align: middle;
+            line-height: 200px;
+            position: relative;
+            max-height: 200px;
+        }
+
+            .organization:hover {
+                top: 2px;
+                border-color: #ff4646;
+            }
+
+            .organization img, .organization svg {
+                max-width: 80%;
+                margin: 20px;
+                max-height: 160px;
+            }
+
+        @media (max-width: 800px) {
+            .organizations {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 400px) {
+            .organizations {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <svg xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" style="position: absolute; width: 0; height: 0;" width="0" height="0" version="1.1">
-      <defs>
-        <symbol id="icon-logo" viewBox="0 0 437.03 151.12">
-          <title>Wichita Community Foundation Logo</title>
-          <path class="cls-1" d="M430.85,118.41v-6.23l5.84-9.22h-4.51l-3.31,5.69L425.49,103H421l5.86,9.22v6.23h4Zm-28.73,0v-12h4.31V103H393.81v3.47h4.33v12h4Zm-26.39,0V103h-4v15.45h4Zm-22.94,0V103h-4v8.5l-6.25-8.5h-4.1v15.45h4v-8.95l6.54,8.95h3.84Zm-40.59.28c4.94,0,7.28-2.71,7.28-6.56V103h-4V112a3.26,3.26,0,0,1-6.51,0V103h-4.06v9.2C304.87,116,307.22,118.69,312.2,118.69Zm-26.27-.28V103h-5.54l-3.24,8.38L273.92,103h-5.54v15.45h4V108.35l3.89,10.06H278l3.92-10.06v10.06h4Zm-36.49,0V103h-5.54l-3.25,8.38L237.43,103h-5.54v15.45h4V108.35l3.89,10.06h1.76l3.91-10.06v10.06h4Zm-42.35-3.25a4.48,4.48,0,1,1,4.19-4.47A4.18,4.18,0,0,1,207.08,115.16Zm0,3.52c4.72,0,8.24-3.29,8.24-8s-3.52-8-8.24-8-8.27,3.29-8.27,8S202.35,118.69,207.08,118.69Zm-29.34,0a7.2,7.2,0,0,0,6.75-4.15l-3.43-1.62a3.71,3.71,0,0,1-3.31,2.25,4.48,4.48,0,0,1,0-8.94,3.72,3.72,0,0,1,3.31,2.25l3.43-1.62a7.15,7.15,0,0,0-6.75-4.15c-4.75,0-8.37,3.22-8.37,8S173,118.69,177.74,118.69ZM435,150.85V135.39h-4v8.5l-6.26-8.5h-4.1v15.45h4V141.9l6.54,8.94H435Zm-36.68-3.24a4.48,4.48,0,1,1,4.19-4.47A4.18,4.18,0,0,1,398.36,147.6Zm0,3.52c4.72,0,8.25-3.29,8.25-8s-3.52-8-8.25-8-8.27,3.29-8.27,8S393.63,151.12,398.36,151.12Zm-22.79-.28V135.39h-4v15.45h4Zm-22.71,0v-12h4.31v-3.47H344.54v3.47h4.33v12h4Zm-27.23-5.7h-3.94l2-5.81Zm6.37,5.7-5.84-15.45h-5l-5.81,15.45h4.52l0.76-2.22h6.09l0.77,2.22H332Zm-37.89-3.47h-2.5v-8.5h2.53a4,4,0,0,1,4.26,4.24A4.1,4.1,0,0,1,294.11,147.37Zm0,3.47c4.84,0,8.34-2.94,8.34-7.74s-3.5-7.72-8.36-7.72h-6.49v15.45h6.52Zm-23,0V135.39h-4v8.5l-6.25-8.5h-4.1v15.45h4V141.9l6.53,8.94h3.84Zm-38.1.28c4.93,0,7.28-2.71,7.28-6.55v-9.17h-4v9.06a3.26,3.26,0,0,1-6.51,0v-9.06h-4.05v9.2C225.74,148.39,228.08,151.12,233.07,151.12Zm-29.88-3.52a4.48,4.48,0,1,1,4.2-4.47A4.18,4.18,0,0,1,203.19,147.6Zm0,3.52c4.73,0,8.25-3.29,8.25-8s-3.52-8-8.25-8-8.27,3.29-8.27,8S198.46,151.12,203.19,151.12Zm-29-.28v-6.09h7.18v-3.48h-7.18v-2.41h7.35v-3.47H170.17v15.45h4Z"></path>
-          <path class="cls-1" d="M307.56,59.48h15.08V45h11.1V83.39h-11.1V68.72H307.56V83.39H296.45V45h11.11V59.48ZM201.94,64.8L190.7,85.33,169,45.05h10.59l11.14,20.36,5.77-10.71L191.32,45h21.43L207.32,55,213,65.42,224,45h11L213,85.33Zm47.65,18.59h-11.1V45h11.1V83.39Zm103.87,0H342.35V45h11.11V83.39ZM360.77,45H396v9h-12V83.39H372.81V54h-12V45Zm43.58,38.76h-11l22-40.29L437,83.8H415.93l5.27-9.62-5.89-10.76ZM276.84,44.1a20,20,0,0,1,13.25,5L283,56.16a10.11,10.11,0,1,0,0,16l7.07,7.07A20.07,20.07,0,1,1,276.84,44.1Z"></path>
-          <path class="cls-1" d="M87,91.82L100.41,104c3.72,2.9,5.41,5.85,5.41,9.66v13.53L91.58,114.72c-2.24-1.94-4.59-7.13-4.59-12.15V91.82Zm0,23.88,13.41,12.22c3.72,2.9,5.41,5.86,5.41,9.67v13.53L91.58,138.6c-2.24-1.94-4.59-7.13-4.59-12.15V115.71ZM0,91.82L13.42,104c3.71,2.9,5.41,5.85,5.41,9.66v13.53L4.59,114.72C2.35,112.78,0,107.59,0,102.57V91.82Zm0,23.88,13.42,12.22c3.71,2.9,5.41,5.86,5.41,9.67v13.53L4.59,138.6C2.35,136.66,0,131.47,0,126.45V115.71ZM41.93,91.82L28.51,104c-3.71,2.9-5.41,5.85-5.41,9.66v13.53l14.23-12.53c2.24-1.94,4.59-7.13,4.59-12.15V91.82Zm0,23.88L28.51,127.93c-3.71,2.9-5.41,5.86-5.41,9.67v13.53L37.33,138.6c2.24-1.94,4.59-7.13,4.59-12.15V115.71Zm87-23.88L115.5,104c-3.71,2.9-5.41,5.85-5.41,9.66v13.53l14.24-12.53c2.24-1.94,4.59-7.13,4.59-12.15V91.82Zm0,23.88L115.5,127.93c-3.71,2.9-5.41,5.86-5.41,9.67v13.53l14.24-12.52c2.24-1.94,4.59-7.13,4.59-12.15V115.71Zm-64.52-1L45.63,131.29V117.76c0-3.72,1.69-6.76,5.4-9.66L64.45,95.87,77.87,108.1c3.71,2.9,5.41,5.88,5.41,9.66v13.53Zm0-23.88L45.63,107.41V93.88c0-3.73,1.69-6.76,5.4-9.67L64.45,72,77.87,84.21c3.71,2.9,5.41,5.89,5.41,9.67v13.53Z"></path>
-          <path class="cls-1" d="M87,0h18.82c-0.05,7.57,0,78.15,0,78.15L91.51,65.62C89.26,63.68,87,58.33,87,53.47V0Zm41.92,18.74H110.09c0,7.57,0,59.41,0,59.41l14.3-12.53c2.25-1.94,4.52-7.25,4.52-12.15V18.74Zm0,48.7L115.5,79.66c-3.71,2.9-5.41,5.85-5.41,9.66v13.53l14.24-12.53c2.24-1.93,4.59-7.13,4.59-12.15V67.44ZM87,67.44l13.41,12.22c3.71,2.9,5.41,5.85,5.41,9.66v13.53L91.58,90.33C89.34,88.4,87,83.21,87,78.18V67.44ZM0,40H18.82c0,7.57,0,38.15,0,38.15L4.52,65.62C2.27,63.68,0,58.39,0,53.47V40ZM41.93,18.74H23.1c0,7.57,0,59.41,0,59.41L37.4,65.62c2.26-1.94,4.52-7.23,4.52-12.15V18.74Zm0,48.7L28.51,79.66c-3.71,2.9-5.41,5.85-5.41,9.66v13.53L37.34,90.33c2.25-1.93,4.59-7.13,4.59-12.15V67.44ZM0,67.44L13.42,79.66c3.71,2.9,5.41,5.85,5.41,9.66v13.53L4.6,90.33C2.35,88.4,0,83.21,0,78.18V67.44Z"></path>
-        </symbol>
-      </defs>
+        <defs>
+            <symbol id="icon-logo" viewBox="0 0 437.03 151.12">
+                <title>Wichita Community Foundation Logo</title>
+                <path class="cls-1" d="M430.85,118.41v-6.23l5.84-9.22h-4.51l-3.31,5.69L425.49,103H421l5.86,9.22v6.23h4Zm-28.73,0v-12h4.31V103H393.81v3.47h4.33v12h4Zm-26.39,0V103h-4v15.45h4Zm-22.94,0V103h-4v8.5l-6.25-8.5h-4.1v15.45h4v-8.95l6.54,8.95h3.84Zm-40.59.28c4.94,0,7.28-2.71,7.28-6.56V103h-4V112a3.26,3.26,0,0,1-6.51,0V103h-4.06v9.2C304.87,116,307.22,118.69,312.2,118.69Zm-26.27-.28V103h-5.54l-3.24,8.38L273.92,103h-5.54v15.45h4V108.35l3.89,10.06H278l3.92-10.06v10.06h4Zm-36.49,0V103h-5.54l-3.25,8.38L237.43,103h-5.54v15.45h4V108.35l3.89,10.06h1.76l3.91-10.06v10.06h4Zm-42.35-3.25a4.48,4.48,0,1,1,4.19-4.47A4.18,4.18,0,0,1,207.08,115.16Zm0,3.52c4.72,0,8.24-3.29,8.24-8s-3.52-8-8.24-8-8.27,3.29-8.27,8S202.35,118.69,207.08,118.69Zm-29.34,0a7.2,7.2,0,0,0,6.75-4.15l-3.43-1.62a3.71,3.71,0,0,1-3.31,2.25,4.48,4.48,0,0,1,0-8.94,3.72,3.72,0,0,1,3.31,2.25l3.43-1.62a7.15,7.15,0,0,0-6.75-4.15c-4.75,0-8.37,3.22-8.37,8S173,118.69,177.74,118.69ZM435,150.85V135.39h-4v8.5l-6.26-8.5h-4.1v15.45h4V141.9l6.54,8.94H435Zm-36.68-3.24a4.48,4.48,0,1,1,4.19-4.47A4.18,4.18,0,0,1,398.36,147.6Zm0,3.52c4.72,0,8.25-3.29,8.25-8s-3.52-8-8.25-8-8.27,3.29-8.27,8S393.63,151.12,398.36,151.12Zm-22.79-.28V135.39h-4v15.45h4Zm-22.71,0v-12h4.31v-3.47H344.54v3.47h4.33v12h4Zm-27.23-5.7h-3.94l2-5.81Zm6.37,5.7-5.84-15.45h-5l-5.81,15.45h4.52l0.76-2.22h6.09l0.77,2.22H332Zm-37.89-3.47h-2.5v-8.5h2.53a4,4,0,0,1,4.26,4.24A4.1,4.1,0,0,1,294.11,147.37Zm0,3.47c4.84,0,8.34-2.94,8.34-7.74s-3.5-7.72-8.36-7.72h-6.49v15.45h6.52Zm-23,0V135.39h-4v8.5l-6.25-8.5h-4.1v15.45h4V141.9l6.53,8.94h3.84Zm-38.1.28c4.93,0,7.28-2.71,7.28-6.55v-9.17h-4v9.06a3.26,3.26,0,0,1-6.51,0v-9.06h-4.05v9.2C225.74,148.39,228.08,151.12,233.07,151.12Zm-29.88-3.52a4.48,4.48,0,1,1,4.2-4.47A4.18,4.18,0,0,1,203.19,147.6Zm0,3.52c4.73,0,8.25-3.29,8.25-8s-3.52-8-8.25-8-8.27,3.29-8.27,8S198.46,151.12,203.19,151.12Zm-29-.28v-6.09h7.18v-3.48h-7.18v-2.41h7.35v-3.47H170.17v15.45h4Z"></path>
+                <path class="cls-1" d="M307.56,59.48h15.08V45h11.1V83.39h-11.1V68.72H307.56V83.39H296.45V45h11.11V59.48ZM201.94,64.8L190.7,85.33,169,45.05h10.59l11.14,20.36,5.77-10.71L191.32,45h21.43L207.32,55,213,65.42,224,45h11L213,85.33Zm47.65,18.59h-11.1V45h11.1V83.39Zm103.87,0H342.35V45h11.11V83.39ZM360.77,45H396v9h-12V83.39H372.81V54h-12V45Zm43.58,38.76h-11l22-40.29L437,83.8H415.93l5.27-9.62-5.89-10.76ZM276.84,44.1a20,20,0,0,1,13.25,5L283,56.16a10.11,10.11,0,1,0,0,16l7.07,7.07A20.07,20.07,0,1,1,276.84,44.1Z"></path>
+                <path class="cls-1" d="M87,91.82L100.41,104c3.72,2.9,5.41,5.85,5.41,9.66v13.53L91.58,114.72c-2.24-1.94-4.59-7.13-4.59-12.15V91.82Zm0,23.88,13.41,12.22c3.72,2.9,5.41,5.86,5.41,9.67v13.53L91.58,138.6c-2.24-1.94-4.59-7.13-4.59-12.15V115.71ZM0,91.82L13.42,104c3.71,2.9,5.41,5.85,5.41,9.66v13.53L4.59,114.72C2.35,112.78,0,107.59,0,102.57V91.82Zm0,23.88,13.42,12.22c3.71,2.9,5.41,5.86,5.41,9.67v13.53L4.59,138.6C2.35,136.66,0,131.47,0,126.45V115.71ZM41.93,91.82L28.51,104c-3.71,2.9-5.41,5.85-5.41,9.66v13.53l14.23-12.53c2.24-1.94,4.59-7.13,4.59-12.15V91.82Zm0,23.88L28.51,127.93c-3.71,2.9-5.41,5.86-5.41,9.67v13.53L37.33,138.6c2.24-1.94,4.59-7.13,4.59-12.15V115.71Zm87-23.88L115.5,104c-3.71,2.9-5.41,5.85-5.41,9.66v13.53l14.24-12.53c2.24-1.94,4.59-7.13,4.59-12.15V91.82Zm0,23.88L115.5,127.93c-3.71,2.9-5.41,5.86-5.41,9.67v13.53l14.24-12.52c2.24-1.94,4.59-7.13,4.59-12.15V115.71Zm-64.52-1L45.63,131.29V117.76c0-3.72,1.69-6.76,5.4-9.66L64.45,95.87,77.87,108.1c3.71,2.9,5.41,5.88,5.41,9.66v13.53Zm0-23.88L45.63,107.41V93.88c0-3.73,1.69-6.76,5.4-9.67L64.45,72,77.87,84.21c3.71,2.9,5.41,5.89,5.41,9.67v13.53Z"></path>
+                <path class="cls-1" d="M87,0h18.82c-0.05,7.57,0,78.15,0,78.15L91.51,65.62C89.26,63.68,87,58.33,87,53.47V0Zm41.92,18.74H110.09c0,7.57,0,59.41,0,59.41l14.3-12.53c2.25-1.94,4.52-7.25,4.52-12.15V18.74Zm0,48.7L115.5,79.66c-3.71,2.9-5.41,5.85-5.41,9.66v13.53l14.24-12.53c2.24-1.93,4.59-7.13,4.59-12.15V67.44ZM87,67.44l13.41,12.22c3.71,2.9,5.41,5.85,5.41,9.66v13.53L91.58,90.33C89.34,88.4,87,83.21,87,78.18V67.44ZM0,40H18.82c0,7.57,0,38.15,0,38.15L4.52,65.62C2.27,63.68,0,58.39,0,53.47V40ZM41.93,18.74H23.1c0,7.57,0,59.41,0,59.41L37.4,65.62c2.26-1.94,4.52-7.23,4.52-12.15V18.74Zm0,48.7L28.51,79.66c-3.71,2.9-5.41,5.85-5.41,9.66v13.53L37.34,90.33c2.25-1.93,4.59-7.13,4.59-12.15V67.44ZM0,67.44L13.42,79.66c3.71,2.9,5.41,5.85,5.41,9.66v13.53L4.6,90.33C2.35,88.4,0,83.21,0,78.18V67.44Z"></path>
+            </symbol>
+        </defs>
     </svg>
     <div class="clearfix text-center main">
-      <div class="col-md-4">
-        <img src="/flag.png" alt="Wichita Flag" style="width:100%;" />
-      </div>
-      <div class="col-md-8 text-left">
-        <h1>Help Wichita</h1>
-        <p>Need voluteers, community members and/or outreach? Use the <a href="#helpict" title="Help Wichita Hashtag">#helpict</a> and spread the word.</p>
-      </div>
-      <div class="col-md-12">
-        <a class="twitter-timeline" href="https://twitter.com/HelpWichita">Tweets by HelpWichita</a>
-        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-      </div>
-      <div class="clearfix">
-        <div class="organizations"></div>
-      </div>
+        <div class="col-xs-4">
+            <img src="flag.png" alt="Wichita Flag" style="width:100%;" />
+        </div>
+        <div class="col-xs-8 text-left">
+            <h1>Help Wichita</h1>
+            <p>Need voluteers, community members and/or outreach? Use the <a href="https://twitter.com/HelpWichita" title="Help Wichita Hashtag">#helpict</a> and spread the word.</p>
+        </div>
+        <div class="col-md-12">
+            <a class="twitter-timeline" href="https://twitter.com/HelpWichita">Tweets by HelpWichita</a>
+            <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+        <div class="clearfix">
+            <div class="organizations"></div>
+        </div>
     </div>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
     <script>
-      $(function () {
-        var organization = { column:1, href:"", title:"", img:"" };
-        var organizations = [
-          { column: 1, href: "http://devict.org", title: "devICT", img: "https://devict.org/images/devICT-Logo.svg" },
-          { column: 2, href: "https://www.groundworkict.com/", title: "GroundWorkICT", img: "https://static.wixstatic.com/media/419d03_81374382d78a45d592ab90cf03152e3b~mv2.png/v1/fill/w_515,h_158,al_c,usm_0.66_1.00_0.01/419d03_81374382d78a45d592ab90cf03152e3b~mv2.png" },
-          { column: 3, href: "http://e2ewichita.com/", title: "e2e", img: "http://e2ewichita.com/wp-content/uploads/2017/02/try3.png" },
-          { column: 1, href: "http://makeict.org", title: "makeICT", img: "http://makeict.org/app/themes/makeict/assets/images/logo-primary.png" },
-          { column: 2, href: "https://wichitacf.org/", title: "Wichita Community Foundation", svg: "<svg><use xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='#icon-logo'></use></svg>" },
-          { column: 3, href: "http://theseedhouse.org/", title: "The Seed House", img: "http://theseedhouse.org/img/logo.png.pagespeed.ce.Xw_Bgm32dI.png" },
-          { column: 1, href: "http://www.socelife.org/", title: "SoCe", img: "https://static1.squarespace.com/static/5582e6fae4b0f41637edf6b2/t/56d904d520c647c737390a60/1486873116701/?format=500w" },
-          { column: 2, href: "http://wichitaarts.com/", title: "Arts Council", img: "http://wichitaarts.com/wp-content/uploads/2017/03/AC-Logo-Resized-032817-v2.png" },
-          { column: 3, href: "http://creativerush.org/", title: "CreativeRush", img: "http://creativerush.org/wp-content/uploads/2014/12/cr-logo.png", color: 'rgba(31, 40, 45,1)' },
-        ];
+        $(function () {
+            var organization = { column:1, href:"", title:"", img:"", svg: "", color: "" };
+            var organizations = [
+                { column: 1, href: "http://devict.org", title: "devICT", img: "https://devict.org/images/devICT-Logo.svg" },
+                { column: 2, href: "https://www.groundworkict.com/", title: "GroundWorkICT", img: "https://static.wixstatic.com/media/419d03_81374382d78a45d592ab90cf03152e3b~mv2.png/v1/fill/w_515,h_158,al_c,usm_0.66_1.00_0.01/419d03_81374382d78a45d592ab90cf03152e3b~mv2.png", color: "#605E5E" },
+                { column: 3, href: "http://e2ewichita.com/", title: "e2e", img: "http://e2ewichita.com/wp-content/uploads/2017/02/try3.png" },
+                { column: 1, href: "http://makeict.org", title: "makeICT", img: "http://makeict.org/app/themes/makeict/assets/images/logo-primary.png" },
+                { column: 2, href: "https://wichitacf.org/", title: "Wichita Community Foundation", svg: "<svg style='fill: #fff;'><use xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='#icon-logo'></use></svg>", color:'#006b68' },
+                { column: 3, href: "http://theseedhouse.org/", title: "The Seed House", img: "http://theseedhouse.org/img/logo.png.pagespeed.ce.Xw_Bgm32dI.png" },
+                { column: 1, href: "http://www.socelife.org/", title: "SoCe", img: "https://static1.squarespace.com/static/5582e6fae4b0f41637edf6b2/t/56d904d520c647c737390a60/1486873116701/?format=500w" },
+                { column: 2, href: "http://wichitaarts.com/", title: "Arts Council", img: "http://wichitaarts.com/wp-content/uploads/2017/03/AC-Logo-Resized-032817-v2.png" },
+                { column: 3, href: "http://creativerush.org/", title: "CreativeRush", img: "http://creativerush.org/wp-content/uploads/2014/12/cr-logo.png", color: 'rgba(31, 40, 45,1)' },
+            ];
 
-        for (var i = 0; i < organizations.length; i++) {
-          var item = $("<a>").addClass("organization")
-            .prop("href", organizations[i].href)
-            .prop("title", organizations[i].title)
-            .css("grid-column", i % 3 + 1);
+            for (var i = 0; i < organizations.length; i++) {
+                var item = $("<a>").addClass("organization")
+                                   .prop("href", organizations[i].href)
+                                   .prop("title", organizations[i].title)
+                                   .css("grid-column", i % 3 + 1);
 
-          if (organizations[i].img !== undefined) item.append($("<img>").prop("src", organizations[i].img).prop("alt", organizations[i].title));
-          else if (organizations[i].svg !== undefined) item.append(organizations[i].svg);
+                if (organizations[i].color) item.css("background-color", organizations[i].color);
 
-          $(".organizations").append(item);
-        }
-      });
+                if (organizations[i].img) item.append($("<img>").prop("src", organizations[i].img).prop("alt", organizations[i].title));
+                else if (organizations[i].svg) item.append(organizations[i].svg);
+
+                $(".organizations").append(item);
+            }
+        });
     </script>
-  </body>
+</body>
 </html>
